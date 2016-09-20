@@ -1108,6 +1108,7 @@ static struct tegra_i2c_chipdata tegra11_i2c_chipdata = {
 	.clk_multiplier_hs_mode = 3,
 };
 
+#if defined(CONFIG_OF)
 /* Match table for of_platform binding */
 static const struct of_device_id tegra_i2c_of_match[] __devinitconst = {
 	{ .compatible = "nvidia,tegra114-i2c", .data = &tegra11_i2c_chipdata, },
@@ -1116,6 +1117,9 @@ static const struct of_device_id tegra_i2c_of_match[] __devinitconst = {
 	{},
 };
 MODULE_DEVICE_TABLE(of, tegra_i2c_of_match);
+#else
+#define tegra_i2c_of_match NULL
+#endif
 
 static struct platform_device_id tegra_i2c_devtype[] = {
 	{
