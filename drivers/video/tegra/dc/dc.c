@@ -87,6 +87,7 @@ struct tegra_dc *tegra_dcs[TEGRA_MAX_DC];
 DEFINE_MUTEX(tegra_dc_lock);
 DEFINE_MUTEX(shared_lock);
 
+#if 0
 static const struct {
 	bool h;
 	bool v;
@@ -98,6 +99,7 @@ static const struct {
 	/* Window C has only H filtering */
 	{ false, true  },
 };
+#endif
 
 #ifdef CONFIG_TEGRA_DC_CMU
 static struct tegra_dc_cmu default_cmu = {

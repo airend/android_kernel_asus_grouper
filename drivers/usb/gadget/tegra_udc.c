@@ -108,6 +108,7 @@ static struct tegra_udc *the_udc;
 	static struct timer_list boost_timer;
 #endif
 
+#ifdef CONFIG_EXTCON
 static char *const tegra_udc_extcon_cable[] = {
 	[CONNECT_TYPE_NONE] = "",
 	[CONNECT_TYPE_SDP] = "USB",
@@ -117,6 +118,7 @@ static char *const tegra_udc_extcon_cable[] = {
 	[CONNECT_TYPE_NON_STANDARD_CHARGER] = "Slow-charger",
 	NULL,
 };
+#endif
 
 static inline void udc_writel(struct tegra_udc *udc, u32 val, u32 offset)
 {
